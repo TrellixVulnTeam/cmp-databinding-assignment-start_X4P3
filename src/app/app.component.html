@@ -15,3 +15,27 @@
     </div>
   </div>
 </div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-control
+        (onTimeout)="onNewEvent($event)"
+        >
+      </app-game-control>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <a href="#" *ngFor="let index of numbers">
+        <app-even *ngIf="index % 2 === 0; else oddNumber" [evenNumber]="index"></app-even>
+        <ng-template #oddNumber>
+          <app-odd [oddNumber]="index"></app-odd>
+        </ng-template>
+      </a>
+    </div>
+  </div>
+</div>
